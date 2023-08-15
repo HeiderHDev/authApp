@@ -12,11 +12,11 @@ export class AppComponent {
 
   private authService = inject(AuthService);
   private router      = inject(Router);
+
   public finishedAuthCheck = computed<boolean>(()=>{
-    if(this.authService.authStatus()=== AuthStatus.checking){
+    if(this.authService.authStatus() === AuthStatus.checking){
       return false;
     }
-
     return true; 
   });
   
@@ -33,8 +33,6 @@ export class AppComponent {
         this.router.navigateByUrl('/auth/login');
         return;
     }
-
-    console.log('authStatus:', this.authService.authStatus());
 
   })
 
